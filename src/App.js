@@ -31,8 +31,8 @@ function App() {
 		 </div>
 		 <ul>
 			 {
-				 category.map((items) => {
-					<li className="liCats" key={items.id} style={{
+				 category.map((item) => {
+					<li className="liCats" key={item.id} style={{
 						margin: '10px 0',
 						display: 'flex',
 						justifyContent: "space-between",
@@ -42,8 +42,8 @@ function App() {
 						borderRadius: '4px',
 						marginBottom: ".8rem",
 						}}>
-						{items.title}
-						<button className="btnDelete" type='button' onClick={() => dispatch(deleteCat(items.id))}> Удалить </button>
+						{item.title}
+						<button className="btnDelete" type='button' onClick={() => dispatch(deleteCat(item.id))}> Удалить </button>
 						</li>
 				 })
 			 }
@@ -80,9 +80,6 @@ function App() {
 						</div>
 						</li>))}
 		 </ul>
-		 <div className="search-panel d-flex">
-
-		 </div>
     </div>
 	 </div>
   );

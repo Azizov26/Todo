@@ -47,7 +47,8 @@ li:hover{
 
 .catPanel {
 	margin: 10px;
-	display: flex
+	display: flex;
+	height: 100px;
 }
 
 
