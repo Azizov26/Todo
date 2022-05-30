@@ -32,7 +32,15 @@ h1:hover{
 	box-shadow: 0 0 10px rgba(0, 150, 100, 0.5)
 
 }
-li{
+.liCats{
+margin: 20px 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: .5rem 1rem;
+border: 1px solid #ccc;
+border-radius: 4px;
+margin-bottom: .5rem;
 
 	
 }

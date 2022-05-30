@@ -10,4 +10,14 @@ export const CATEGORY__ACTIONS = Object.freeze({
     type: CATEGORY_ACTION_TYPES.DELETE__CATEGORY,
     payload: id,
   }),
+
+  addTask: (task) => ({
+	  type: CATEGORY_ACTION_TYPES.ADD__TASK,
+	  payload: task,
+  }),
+  
+  deleteTask: (id) => ({
+	  type: CATEGORY_ACTION_TYPES.DELETE__TASK,
+	  payload: id,
+  })
 });
