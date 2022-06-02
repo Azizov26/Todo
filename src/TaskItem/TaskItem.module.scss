@@ -1,0 +1,12 @@
+.task {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+  border: 1px solid black;
+
+
+  &__title {
+    color: darkgreen;
+    margin-right: 18px;
+  }
+}

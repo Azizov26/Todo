@@ -1,23 +1,23 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {CATEGORY__ACTIONS} from '../redux/reducers/category/actions'
+import { CATEGORY__ACTIONS } from '../redux/reducers/category/actions';
+import styles from './TaskItem.module.scss';
 
-export const TaskItem = () => {
+export const TaskItem = ({ categoryId, taskName, todoId }) => {
   const dispatch = useDispatch();
 
   return (
-      <div className="">
-        <button className="" type="button" onClick={() => dispatch(CATEGORY__ACTIONS.deleteTask('100'))}>
+    <div className="">
+      <div className={styles.task}>
+        <span className={styles.task__title}>{taskName}</span>
+
+        <button
+          className=""
+          type="button"
+          onClick={() => dispatch(CATEGORY__ACTIONS.deleteTask({ categoryId, todoId }))}>
           ✘
         </button>
-        {/* <button className="" type="button" onClick={() => dispatch(doImportant(item.id))}>
-			  {' '}
-				✮{' '}
-			 </button> */}
-        {/* <button className="" type="button" onClick={() => dispatch(doDone(item.id))}>
-			  {' '}
-		✔{' '}
-		  </button> */}
       </div>
+    </div>
   );
 };

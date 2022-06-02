@@ -2,12 +2,17 @@ import { CATEGORY_ACTION_TYPES } from './action-types';
 
 export const initialState = [
   {
-    id: '1',
-    categoryName: 'Сделать тестовое',
+    categoryId: '1',
+    categoryName: 'ОБУЧЕНИЕ',
     tasks: [
       {
-        id: '100',
+        todoId: '100',
         taskName: 'Разобраться с задачей',
+        isCompleted: false,
+      },
+      {
+        todoId: '101',
+        taskName: 'Устроиться на работу',
         isCompleted: false,
       },
     ],
@@ -20,27 +25,31 @@ export default (state = initialState, action) => {
       return [
         ...state,
         {
-          id: new Date().getDate(),
+          categoryId: new Date().getDate(),
           categoryName: action.payload,
           tasks: [],
         },
       ];
 
     case CATEGORY_ACTION_TYPES.DELETE__CATEGORY:
-      return [...state.initialState.filter((item) => item.id === action.payload)];
+      return [...state.filter((item) => item.categoryId === action.payload)];
 
     case CATEGORY_ACTION_TYPES.ADD__TASK:
-      return [
-        ...state,
-        {
-          id: new Date().getDate(),
-          task: action.payload,
-          isCompleted: false,
-        },
-      ];
+      return [...state];
 
     case CATEGORY_ACTION_TYPES.DELETE__TASK:
-      return [...state.initialState.filter((item) => item.id === action.payload)];
+      const updatedState = state.map((category) => {
+        if (category.categoryId === action.payload.categoryId) {
+          return {
+            ...category,
+            tasks: category.tasks.filter((todo) => todo.todoId !== action.payload.todoId),
+          };
+        }
+
+        return category;
+      });
+      return updatedState;
+
     default:
       return state;
   }

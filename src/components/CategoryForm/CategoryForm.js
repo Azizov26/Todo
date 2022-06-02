@@ -8,15 +8,19 @@ export const CategoryForm = ({ onSubmit }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
 
-    onSubmit(categoryName);
-    setCategoryName('');
+    console.log(categoryName);
+
+    if (categoryName !== '') {
+      onSubmit(categoryName);
+      setCategoryName('');
+    }
   };
 
   return (
     <form onSubmit={handleOnSubmit}>
-      <input className='inputCategory' type="text" value={categoryName} onChange={handleOnChange} />
+      <input className="inputCategory" type="text" value={categoryName} onChange={handleOnChange} />
       <button type="submit" onClick={handleOnSubmit}>
-        Добавить категорию
+        ДОБАВИТЬ КАТЕГОРИЮ
       </button>
     </form>
   );
