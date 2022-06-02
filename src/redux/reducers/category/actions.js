@@ -11,9 +11,9 @@ export const CATEGORY__ACTIONS = Object.freeze({
     payload: id,
   }),
 
-  addTask: (task) => ({
+  addTask: (taskName) => ({
 	  type: CATEGORY_ACTION_TYPES.ADD__TASK,
-	  payload: task,
+	  payload: taskName,
   }),
   
   deleteTask: (id) => ({

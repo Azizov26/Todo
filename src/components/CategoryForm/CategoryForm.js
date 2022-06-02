@@ -14,8 +14,7 @@ export const CategoryForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleOnSubmit}>
-      <input type="text" value={categoryName} onChange={handleOnChange} />
-
+      <input className='inputCategory' type="text" value={categoryName} onChange={handleOnChange} />
       <button type="submit" onClick={handleOnSubmit}>
         Добавить категорию
       </button>

@@ -1,6 +1,14 @@
 import React from 'react';
-import styles from './Categories.module.scss';
 
-export const Categories = () => {
-  return <h1 className={styles.wrapper}>Тут будут категории</h1>;
+export const Categories = ({ categories }) => {
+  return (
+    <div className='categoriesList'>
+      {categories.map((category) => (
+        <span key={category.categoryName}className='categories'>{category.categoryName}</span>
+      ))}
+    </div>
+  );
 };
+// записать проптайпы
+// поправить верстку
+// исправить задачи

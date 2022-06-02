@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Categories, CategoryForm, List, Tasks, TaskList } from './components';
-
 import { CATEGORY__ACTIONS } from './redux/reducers/category/actions';
 
 function App() {
@@ -18,10 +17,10 @@ function App() {
         <h1> Todo List</h1>
         <div className="catPanel">
           <CategoryForm onSubmit={onSubmit} />
-          <Categories />
+          <Categories categories={categories} />
           <List />
           <Tasks onSubmit={onSubmit} />
-          <TaskList />
+          <TaskList categoryName={categories[0].categoryName} tasks={categories[0].tasks} />
         </div>
       </div>
     </div>
