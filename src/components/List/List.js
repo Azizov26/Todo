@@ -7,16 +7,15 @@ export const List = () => {
   const dispatch = useDispatch();
 
   return (
-	  <div>
-    <ul>
-      <li className="liCats">
-        {initialState.categoryName}
-        <button className="btnDelete" type="button" onClick={() => dispatch(CATEGORY__ACTIONS.deleteCategory('1'))}>
-          Удалить
-        </button>
-      </li>
-    </ul>
-	  </div>
-
+    <div>
+      <ul>
+        <li className="liCats">
+          {initialState.categoryName}
+          <button className="" type="button" onClick={() => dispatch(CATEGORY__ACTIONS.deleteCategory('1'))}>
+            Удалить
+          </button>
+        </li>
+      </ul>
+    </div>
   );
 };
