@@ -25,20 +25,37 @@ export default (state = initialState, action) => {
       return [
         ...state,
         {
-          categoryId: new Date().getDate(),
+          categoryId: new Date().getTime(),
           categoryName: action.payload,
           tasks: [],
         },
       ];
 
     case CATEGORY_ACTION_TYPES.DELETE__CATEGORY:
-      return [...state.filter((item) => item.categoryId === action.payload)];
+      return [...state.filter((item) => item.categoryId !== action.payload)];
 
-    case CATEGORY_ACTION_TYPES.ADD__TASK:
-      return [...state];
+    case CATEGORY_ACTION_TYPES.ADD__TASK: {
+      return state.map((category) => {
+        if (category.categoryId === action.payload.categoryId) {
+          return {
+            ...category,
+            tasks: [
+              ...category.tasks,
+              {
+                todoId: new Date().getTime(),
+                taskName: action.payload.taskName,
+                isCompleted: false,
+              },
+            ],
+          };
+        }
+
+        return category;
+      });
+    }
 
     case CATEGORY_ACTION_TYPES.DELETE__TASK:
-      const updatedState = state.map((category) => {
+      return state.map((category) => {
         if (category.categoryId === action.payload.categoryId) {
           return {
             ...category,
@@ -48,7 +65,6 @@ export default (state = initialState, action) => {
 
         return category;
       });
-      return updatedState;
 
     default:
       return state;

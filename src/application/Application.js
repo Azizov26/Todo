@@ -11,7 +11,8 @@ export const App = () => {
 
   console.log('### categories', categories);
 
-  const onSubmit = (categoryName) => dispatch(CATEGORY__ACTIONS.addCategory(categoryName));
+  const onSubmitCategoryForm = (categoryName) => dispatch(CATEGORY__ACTIONS.addCategory(categoryName));
+  const onSubmitTaskForm = ({ taskName, categoryId }) => dispatch(CATEGORY__ACTIONS.addTask({ taskName, categoryId }));
 
   return (
     <div className={styles.app}>
@@ -19,13 +20,15 @@ export const App = () => {
         <h1 className={styles.title}> Todo List</h1>
         <div className={styles.content}>
           <div className={styles.content__item}>
-            <CategoryForm onSubmit={onSubmit} />
+            <CategoryForm onSubmit={onSubmitCategoryForm} />
             <Categories categories={categories} />
           </div>
 
           <div className={styles.content__item}>
             <List />
-            <Tasks onSubmit={onSubmit} />
+
+            <Tasks categoryId={categories[0].categoryId} onSubmit={onSubmitTaskForm} />
+
             <TaskList
               categoryName={categories[0].categoryName}
               categoryId={categories[0].categoryId}
