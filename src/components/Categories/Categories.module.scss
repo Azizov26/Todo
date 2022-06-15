@@ -1,10 +1,24 @@
-
 .categories {
-  border: 10px solid red;
-  display: flex;
   flex-direction: column;
+  font-size: 20px;
+}
+.categories:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.category {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+  border: 1px solid black;
+
+  &__title {
+    color: darkgreen;
+    margin-right: 18px;
+  }
 }
 
-.category {
-  margin-bottom: 12px;
+.button {
+  background: cadetblue;
+  color: #fff;
+  border: none;
 }

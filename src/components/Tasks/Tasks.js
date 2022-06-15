@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import styles from './Task.module.scss'
+
 export const Tasks = ({ onSubmit, categoryId }) => {
   const [taskName, setTask] = useState('');
 
@@ -7,13 +9,15 @@ export const Tasks = ({ onSubmit, categoryId }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
 
+	 if (!taskName) return 
     onSubmit({ taskName, categoryId });
     setTask('');
   };
+  
   return (
-    <form className="Tasks" onSubmit={handleOnSubmit}>
-      <input className="in" type="text" value={taskName} onChange={handleOnChange} />
-      <button className="btn" type="button" onClick={handleOnSubmit}>
+    <form onSubmit={handleOnSubmit}>
+      <input className={styles.input} type="text" value={taskName} onChange={handleOnChange} />
+      <button className={styles.button} type="button" onClick={handleOnSubmit}>
         Добавить задачу
       </button>
     </form>

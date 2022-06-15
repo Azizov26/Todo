@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Categories, CategoryForm, List, Tasks, TaskList } from '../components';
+import { Categories, CategoryForm, Tasks, TaskList } from '../components';
 import { CATEGORY__ACTIONS } from '../redux/reducers/category/actions';
 
 import styles from './Application.module.scss';
@@ -25,7 +25,6 @@ export const App = () => {
           </div>
 
           <div className={styles.content__item}>
-            <List />
 
             <Tasks categoryId={categories[0].categoryId} onSubmit={onSubmitTaskForm} />
 

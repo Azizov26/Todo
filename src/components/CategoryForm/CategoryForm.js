@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import styles from './CategoryForm.module.scss';
+
 export const CategoryForm = ({ onSubmit }) => {
   console.log();
   const [categoryName, setCategoryName] = useState('');
@@ -18,8 +20,8 @@ export const CategoryForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleOnSubmit}>
-      <input className="inputCategory" type="text" value={categoryName} onChange={handleOnChange} />
-      <button type="submit" onClick={handleOnSubmit}>
+      <input className={styles.input} type="text" value={categoryName} onChange={handleOnChange} />
+      <button className={styles.button} type="submit" onClick={handleOnSubmit}>
         ДОБАВИТЬ КАТЕГОРИЮ
       </button>
     </form>

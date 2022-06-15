@@ -6,9 +6,17 @@ export const CATEGORY__ACTIONS = Object.freeze({
     payload: categoryName,
   }),
 
-  deleteCategory: (id) => ({
+  deleteCategory: (categoryId) => ({
     type: CATEGORY_ACTION_TYPES.DELETE__CATEGORY,
-    payload: id,
+    payload: categoryId,
+  }),
+
+  renameCategory: ({categoryName, categoryId}) => ({
+	type: CATEGORY_ACTION_TYPES.RENAME__CATEGORY,
+	payload: {
+		categoryName,
+		categoryId,
+	},
   }),
 
   addTask: ({ taskName, categoryId }) => ({

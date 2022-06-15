@@ -32,7 +32,21 @@ export default (state = initialState, action) => {
       ];
 
     case CATEGORY_ACTION_TYPES.DELETE__CATEGORY:
-      return [...state.filter((item) => item.categoryId !== action.payload)];
+      return [...state.filter((category) => category.categoryId !== action.payload.categoryId)];
+		
+	case CATEGORY_ACTION_TYPES.RENAME__CATEGORY: {
+		return state.map((category) => {
+			if (category.categoryId === action.payload.categoryId) {
+				return {
+					...category,			
+						categoryName: action.payload.categoryName,
+				}
+				}
+			return category
+			}
+		)}
+	
+	
 
     case CATEGORY_ACTION_TYPES.ADD__TASK: {
       return state.map((category) => {
