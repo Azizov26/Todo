@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="655833e7-e847-4870-8e94-1e5839dbc588" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Application.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/List/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/List/List.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tasks/Tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tasks/Tasks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Categories/Categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories/Categories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CategoryValue/CategoryValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CategoryValue/CategoryValue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reducers/category/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/category/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
