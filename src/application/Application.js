@@ -26,7 +26,7 @@ export const App = () => {
 
           <div className={styles.content__item}>
 
-            <Tasks categoryId={categories[0].categoryId} onSubmit={onSubmitTaskForm} />
+            <Tasks categoryId={categories.isSelected} onSubmit={onSubmitTaskForm} />
 
             <TaskList
               categoryName={categories[0].categoryName}

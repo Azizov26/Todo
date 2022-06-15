@@ -47,6 +47,17 @@ export default (state = initialState, action) => {
       });
     }
 
+	 case CATEGORY_ACTION_TYPES.SHOW__CATEGORY:
+		return state.map((category) => {
+			if (category.categoryId === action.payload.categoryId) {
+			  return {
+				 ...category,
+				 isSelected: !isSelected,
+			  };
+			}
+			return category;
+		 });
+
     case CATEGORY_ACTION_TYPES.ADD__TASK: {
       return state.map((category) => {
         if (category.categoryId === action.payload.categoryId) {

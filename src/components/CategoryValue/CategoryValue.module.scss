@@ -1,8 +1,24 @@
-.input{
-	width: 515px;
-	height: 33px;
+
+.category {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 24px;
+	border: 1px solid black;
+
+	&__title {
+	  color: darkgreen;
+	  margin-right: 18px;
+	}
+ }
+ .category:hover{
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+	background-color:cadetblue;
 }
-.button {
-	width: 200px;
-	height: 33px;
-}
+ 
+ .button {
+	display: flex;
+	background: cadetblue;
+	color: #fff;
+ }
+ 

@@ -19,6 +19,15 @@ export const CATEGORY__ACTIONS = Object.freeze({
 	},
   }),
 
+  showCategory: ({categoryName, categoryId, isSelected}) => ({
+	type:CATEGORY_ACTION_TYPES.SHOW__CATEGORY,
+	payload: {
+		categoryName,
+		categoryId,
+		isSelected
+	},
+  }),
+
   addTask: ({ taskName, categoryId }) => ({
     type: CATEGORY_ACTION_TYPES.ADD__TASK,
     payload: {

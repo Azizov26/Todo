@@ -2,23 +2,6 @@
   flex-direction: column;
   font-size: 20px;
 }
-.categories:hover {
+.categories{
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-.category {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 24px;
-  border: 1px solid black;
-
-  &__title {
-    color: darkgreen;
-    margin-right: 18px;
-  }
-}
-
-.button {
-  background: cadetblue;
-  color: #fff;
-  border: none;
 }
