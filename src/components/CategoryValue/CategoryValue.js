@@ -14,7 +14,6 @@ export const CategoryValue = ({ categoryId, categoryName }) => {
     setIsEdited(false);
   };
   const onDelete = () => dispatch(CATEGORY__ACTIONS.deleteCategory({ categoryId }));
-
   const onShow = () => dispatch(CATEGORY__ACTIONS.showCategory({ categoryId }));
 
 
@@ -23,12 +22,14 @@ export const CategoryValue = ({ categoryId, categoryName }) => {
       {isEdited ? (
         <Fragment>
           <input value={inputValue} onChange={onChange} />
-          <button onClick={onRename}> ✔ </button>
+          <button className={styles.edited} onClick={onRename}> ✔ </button>
         </Fragment>
       ) : (
         <span className={styles.category__title}>
           {categoryName}
-          <button onClick={() => setIsEdited(true)}>✍</button>
+          <button className={styles.edited} onClick={() => setIsEdited(true)}>
+				✍
+				</button>
         </span>
       )}
       <button className={styles.button} type="button" onClick={onDelete}>

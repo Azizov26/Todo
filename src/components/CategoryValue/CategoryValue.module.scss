@@ -1,25 +1,30 @@
-
 .category {
-	display: flex;
-	flex-direction: row;
-	margin-bottom: 24px;
-	border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 24px;
+  border: 1px solid black;
 
-	&__title {
-	  color: darkgreen;
-	  margin-right: 18px;
-	}
- }
- .category:hover{
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-	cursor: pointer;
-	background-color:cadetblue;
+  &__title {
+    color: darkgreen;
+    margin-right: 18px;
+  }
 }
- 
- .button {
-	color: black;
-	border: none;
-	border-radius: 20%;
-	cursor: pointer;
- }
- 
+.category:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  background-color: cadetblue;
+}
+
+.button {
+  color: black;
+  border: none;
+  border-radius: 20%;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 10px;
+}
+.edited {
+  border: none;
+  border-radius: 20%;
+  cursor: pointer;
+}

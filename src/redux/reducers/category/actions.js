@@ -11,21 +11,21 @@ export const CATEGORY__ACTIONS = Object.freeze({
     payload: categoryId,
   }),
 
-  renameCategory: ({categoryName, categoryId}) => ({
-	type: CATEGORY_ACTION_TYPES.RENAME__CATEGORY,
-	payload: {
-		categoryName,
-		categoryId,
-	},
+  renameCategory: ({ categoryName, categoryId }) => ({
+    type: CATEGORY_ACTION_TYPES.RENAME__CATEGORY,
+    payload: {
+      categoryName,
+      categoryId,
+    },
   }),
 
-  showCategory: ({categoryName, categoryId, isSelected}) => ({
-	type:CATEGORY_ACTION_TYPES.SHOW__CATEGORY,
-	payload: {
-		categoryName,
-		categoryId,
-		isSelected
-	},
+  showCategory: ({ categoryName, categoryId, isSelected }) => ({
+    type: CATEGORY_ACTION_TYPES.SHOW__CATEGORY,
+    payload: {
+      categoryName,
+      categoryId,
+      isSelected,
+    },
   }),
 
   addTask: ({ taskName, categoryId }) => ({
@@ -36,8 +36,19 @@ export const CATEGORY__ACTIONS = Object.freeze({
     },
   }),
 
+  renameTask: ({ categoryId, taskName }) => ({
+    type: CATEGORY_ACTION_TYPES.RENAME__TASK,
+    paylod: {
+      categoryId,
+      taskName,
+    },
+  }),
+
   deleteTask: ({ categoryId, todoId }) => ({
     type: CATEGORY_ACTION_TYPES.DELETE__TASK,
-    payload: { categoryId, todoId },
+    payload: {
+      categoryId,
+      todoId,
+    },
   }),
 });

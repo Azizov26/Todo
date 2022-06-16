@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { CategoryValue } from '../CategoryValue/CategoryValue';
 
 import styles from './Categories.module.scss';

@@ -47,12 +47,31 @@ export default (state = initialState, action) => {
       });
     }
 
-	 case CATEGORY_ACTION_TYPES.SHOW__CATEGORY: {
-		return state.map((category) => {
-				return {
-					...category,
-					isSelected: category.categoryId === action.payload.categoryId ? true : false
-				  }})}
+    case CATEGORY_ACTION_TYPES.SHOW__CATEGORY: {
+      return state.map((category) => {
+        return {
+          ...category,
+          isSelected: category.categoryId === action.payload.categoryId ? true : false,
+        };
+      });
+    }
+
+    case CATEGORY_ACTION_TYPES.RENAME__TASK: {
+      return state.map((category) => {
+        if (category.categoryId === action.payload.categoryId) {
+          return {
+            ...category,
+            tasks: [
+              ...category.tasks,
+              {
+                taskName: action.payload.taskName,
+              },
+            ],
+          };
+        }
+        return category;
+      });
+    }
 
     case CATEGORY_ACTION_TYPES.ADD__TASK: {
       return state.map((category) => {
@@ -69,7 +88,6 @@ export default (state = initialState, action) => {
             ],
           };
         }
-
         return category;
       });
     }
