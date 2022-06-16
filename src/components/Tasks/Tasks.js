@@ -18,7 +18,7 @@ export const Tasks = ({ onSubmit, categoryId }) => {
     <form onSubmit={handleOnSubmit}>
       <input className={styles.input} type="text" value={taskName} onChange={handleOnChange} />
       <button className={styles.button} type="button" onClick={handleOnSubmit}>
-        Добавить задачу
+        ДОБАВИТЬ ЗАДАЧУ
       </button>
     </form>
   );
