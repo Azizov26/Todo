@@ -6,6 +6,4 @@ export const CATEGORY_ACTION_TYPES = Object.freeze({
   ADD__TASK: '[CATEGORY] - ADD__TASK',
   RENAME__TASK: '[CATEGORY] - RENAME__TASK',
   DELETE__TASK: '[CATEGORY] - DELETE__TASK',
-  
-
 });

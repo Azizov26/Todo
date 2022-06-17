@@ -51,7 +51,8 @@ export default (state = initialState, action) => {
       return state.map((category) => {
         return {
           ...category,
-          isSelected: category.categoryId === action.payload.categoryId ? true : false,
+          // isSelected: category.categoryId === action.payload.categoryId ? true : false,
+          isSelected: category.categoryId === action.payload.categoryId,
         };
       });
     }
@@ -61,12 +62,13 @@ export default (state = initialState, action) => {
         if (category.categoryId === action.payload.categoryId) {
           return {
             ...category,
-            tasks: [
-              ...category.tasks,
-              {
-                taskName: action.payload.taskName,
-              },
-            ],
+            tasks: category.tasks.map((task) => ({
+              ...task,
+              taskName:
+                  task.todoId ===  action.payload.todoId
+                      ? action.payload.taskName
+                      : task.taskName
+            }))
           };
         }
         return category;

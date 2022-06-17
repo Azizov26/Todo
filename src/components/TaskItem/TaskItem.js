@@ -11,15 +11,19 @@ export const TaskItem = ({ categoryId, taskName, todoId }) => {
 	const onChange = (e) => setInputValue(e.target.value);
 	const onDelete = () => dispatch(CATEGORY__ACTIONS.deleteTask({ categoryId, todoId }))
 	const onRename = () => {
-		dispatch(CATEGORY__ACTIONS.renameTask({ categoryId, taskName: inputValue }));
+		dispatch(CATEGORY__ACTIONS.renameTask({
+			categoryId,
+			todoId,
+			taskName: inputValue
+		}));
+
 		setIsEdited(false);
 	 };
-
 
   return (
     <div className="" >
       <div className={styles.task}>
-			{isEdited ? (
+	      {isEdited ? (
         <Fragment>
 		  <input value={inputValue} onChange={onChange} />
 		  <button onClick={onRename}> ✔ </button>

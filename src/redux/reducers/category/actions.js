@@ -36,13 +36,16 @@ export const CATEGORY__ACTIONS = Object.freeze({
     },
   }),
 
-  renameTask: ({ categoryId, taskName }) => ({
+  renameTask: ({ categoryId, todoId, taskName }) => ({
     type: CATEGORY_ACTION_TYPES.RENAME__TASK,
-    paylod: {
+    payload: {
       categoryId,
+      todoId,
       taskName,
     },
   }),
+
+  // toggleTask // completeTask
 
   deleteTask: ({ categoryId, todoId }) => ({
     type: CATEGORY_ACTION_TYPES.DELETE__TASK,
