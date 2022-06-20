@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Categories, CategoryForm, Tasks, TaskList } from '../components';
@@ -7,24 +7,33 @@ import { CATEGORY__ACTIONS } from '../redux/reducers/category/actions';
 import styles from './Application.module.scss';
 
 export const App = () => {
-	const dispatch = useDispatch();
-	const categories = useSelector((state) => state.categories);
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories);
 
-	console.log('### categories', categories);
+  console.log('### categories', categories);
 
-	const onSubmitCategoryForm = (categoryName) => dispatch(CATEGORY__ACTIONS.addCategory(categoryName));
-	const onSubmitTaskForm = ({ taskName, categoryId }) => dispatch(CATEGORY__ACTIONS.addTask({ taskName, categoryId }));
+  const onSubmitCategoryForm = (categoryName) => dispatch(CATEGORY__ACTIONS.addCategory(categoryName));
+  const onSubmitTaskForm = ({ taskName, categoryId }) => dispatch(CATEGORY__ACTIONS.addTask({ taskName, categoryId }));
 
-	const selectedCategory = categories.filter(({isSelected}) => isSelected === true)[0];
-	console.log('### selectedCategory ', selectedCategory);
+  const allTasks = categories.reduce((acc, category) => acc + category.tasks.length, 0);
+  console.log('### allTasks', allTasks);
+  const completedTasks = categories.reduce(
+    (acc, category) => acc + category.tasks.filter(({ isCompleted }) => isCompleted).length,
+    0,
+  );
+  console.log('### completedTasks', completedTasks);
+  const countChecked = (100 / allTasks) * completedTasks;
+
+  const selectedCategory = categories.filter(({ isSelected }) => isSelected === true)[0];
+  console.log('### selectedCategory ', selectedCategory);
 
   return (
     <div className={styles.app}>
       <div>
         <h1 className={styles.title}> Todo List</h1>
-	      <div className={styles.progressBar}>
-	        <div style={{width: '100%'}} className={styles.progressBar__content}/>
-		  </div>
+        <div className={styles.progressBar}>
+          <div style={{ width: countChecked + '%' }} className={styles.progressBar__content} />
+        </div>
 
         <div className={styles.content}>
           <div className={styles.content__item}>
@@ -32,17 +41,17 @@ export const App = () => {
             <Categories categories={categories} />
           </div>
 
-          <div className={styles.content__item}>
-	          {selectedCategory && (
-				  <Fragment>
-				    <Tasks categoryId={selectedCategory.categoryId} onSubmit={onSubmitTaskForm} />
-	                <TaskList
-		                categoryName={selectedCategory.categoryName}
-		                categoryId={selectedCategory.categoryId}
-		                tasks={selectedCategory.tasks}
-	                />
-				  </Fragment>
-	          )}
+          <div className={styles.content__item_task}>
+            {selectedCategory && (
+              <Fragment>
+                <Tasks categoryId={selectedCategory.categoryId} onSubmit={onSubmitTaskForm} />
+                <TaskList
+                  categoryName={selectedCategory.categoryName}
+                  categoryId={selectedCategory.categoryId}
+                  tasks={selectedCategory.tasks}
+                />
+              </Fragment>
+            )}
           </div>
         </div>
       </div>

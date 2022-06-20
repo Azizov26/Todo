@@ -1,3 +1,4 @@
+import { createStore } from 'redux';
 import { CATEGORY_ACTION_TYPES } from './action-types';
 
 export const initialState = [
@@ -51,7 +52,6 @@ export default (state = initialState, action) => {
       return state.map((category) => {
         return {
           ...category,
-          // isSelected: category.categoryId === action.payload.categoryId ? true : false,
           isSelected: category.categoryId === action.payload.categoryId,
         };
       });
@@ -93,6 +93,21 @@ export default (state = initialState, action) => {
         return category;
       });
     }
+	 case CATEGORY_ACTION_TYPES.TOGGLE__TASK: {
+      return state.map((category) => {
+			if (category.categoryId === action.payload.categoryId) {
+			  return {
+				 ...category,
+				 tasks: category.tasks.map((task) => ({
+					...task,
+					isCompleted:
+						 task.todoId === action.payload.todoId ? !task.isCompleted : task.isCompleted
+				 }))
+			  };
+			}
+			return category;
+		 });
+	 }
 
     case CATEGORY_ACTION_TYPES.DELETE__TASK:
       return state.map((category) => {
@@ -102,7 +117,6 @@ export default (state = initialState, action) => {
             tasks: category.tasks.filter((todo) => todo.todoId !== action.payload.todoId),
           };
         }
-
         return category;
       });
 
@@ -110,3 +124,19 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+// case CATEGORY_ACTION_TYPES.TOGGLE__TASK: {
+// 	return state.map((category) => {
+// 		if (category.categoryId === action.payload.categoryId) {
+// 		  return {
+// 			 ...category,
+// 			 tasks: category.tasks.map((task) => ({
+// 				...task,
+// 				isCompleted:
+// 					 task.todoId === action.payload.todoId ? !task.isCompleted : task.isCompleted
+// 			 }))
+// 		  };
+// 		}
+// 		return category;
+// 	 });
+//  }

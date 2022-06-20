@@ -15,10 +15,10 @@ export const Tasks = ({ onSubmit, categoryId }) => {
   };
   
   return (
-    <form onSubmit={handleOnSubmit}>
-      <input className={styles.input} type="text" value={taskName} onChange={handleOnChange} />
+    <form className={styles.content} onSubmit={handleOnSubmit}>
+      <input placeholder='Tasks...' className={styles.input} type="text" value={taskName} onChange={handleOnChange} />
       <button className={styles.button} type="button" onClick={handleOnSubmit}>
-        ДОБАВИТЬ ЗАДАЧУ
+        ADD
       </button>
     </form>
   );

@@ -45,7 +45,14 @@ export const CATEGORY__ACTIONS = Object.freeze({
     },
   }),
 
-  // toggleTask // completeTask
+  toggleTask: ({ categoryId, todoId }) => ({
+	type: CATEGORY_ACTION_TYPES.TOGGLE__TASK,
+	payload: {
+		categoryId,
+		todoId,
+	}
+  }),
+
 
   deleteTask: ({ categoryId, todoId }) => ({
     type: CATEGORY_ACTION_TYPES.DELETE__TASK,

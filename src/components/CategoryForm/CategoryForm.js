@@ -20,10 +20,12 @@ export const CategoryForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleOnSubmit}>
-      <input className={styles.input} type="text" value={categoryName} onChange={handleOnChange} />
+		<div className={styles.content} >
+		<input placeholder='Categories...' className={styles.input} type="text" value={categoryName} onChange={handleOnChange} />
       <button className={styles.button} type="submit" onClick={handleOnSubmit}>
-        ДОБАВИТЬ КАТЕГОРИЮ
+       ADD
       </button>
+		</div>
     </form>
   );
 };
