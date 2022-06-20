@@ -4,7 +4,7 @@ import { CATEGORY_ACTION_TYPES } from './action-types';
 export const initialState = [
   {
     categoryId: '1',
-    categoryName: 'ОБУЧЕНИЕ',
+    categoryName: 'Обучение',
     isSelected: true,
     tasks: [
       {

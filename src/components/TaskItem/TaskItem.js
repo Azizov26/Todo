@@ -32,7 +32,7 @@ export const TaskItem = ({ categoryId, taskName, todoId }) => {
             <button onClick={onRename}> ✔ </button>
           </Fragment>
         ) : (
-			<span className={styles.task__title}>
+			<span id='elastic' className={styles.task__title}>
 				<input onClick={onToggle} className={styles.checkbox} type='checkbox' id='tasks' name='tasks' value='taskName'/>
 				<label>{taskName}</label>
 			 <button className={styles.edited} onClick={() => setIsEdited(true)}>✍</button>

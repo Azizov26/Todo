@@ -34,13 +34,12 @@ export const App = () => {
         <div className={styles.progressBar}>
           <div style={{ width: countChecked + '%' }} className={styles.progressBar__content} />
         </div>
-
         <div className={styles.content}>
           <div className={styles.content__item}>
             <CategoryForm onSubmit={onSubmitCategoryForm} />
             <Categories categories={categories} />
           </div>
-
+	
           <div className={styles.content__item_task}>
             {selectedCategory && (
               <Fragment>
