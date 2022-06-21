@@ -1,9 +1,15 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from './CategoryValue.module.scss';
-import { CATEGORY__ACTIONS } from '../../redux/reducers/category/actions';
 
-export const CategoryValue = ({ categoryId, categoryName }) => {
+import { CATEGORY__ACTIONS } from '../../redux/reducers/category/actions';
+import { DeleteItems } from '../../application/assets/images/DeleteItems';
+import { Edit } from '../../application/assets/images/Edit';
+import { Done } from '../../application/assets/images/Done';
+
+import styles from './CategoryItem.module.scss';
+
+
+export const CategoryItem = ({ categoryId, categoryName }) => {
   const dispatch = useDispatch();
   const [isEdited, setIsEdited] = useState(false);
   const [inputValue, setInputValue] = useState(categoryName);
@@ -16,24 +22,23 @@ export const CategoryValue = ({ categoryId, categoryName }) => {
   const onDelete = () => dispatch(CATEGORY__ACTIONS.deleteCategory({ categoryId }));
   const onShow = () => dispatch(CATEGORY__ACTIONS.showCategory({ categoryId }));
 
-
   return (
     <div onClick={onShow} key={categoryName} className={styles.category}>
       {isEdited ? (
         <Fragment>
           <input value={inputValue} onChange={onChange} />
-          <button className={styles.edited} onClick={onRename}> ✔ </button>
+          <button className={styles.button} onClick={onRename}> <Done/> </button>
         </Fragment>
       ) : (
-        <span className={styles.category__title}>
+        <div className={styles.category__title} >
           {categoryName}
-          <button className={styles.edited} onClick={() => setIsEdited(true)}>
-				✍
+				<button className={styles.edited} onClick={() => setIsEdited(true)}>
+				<Edit/>
 				</button>
-        </span>
+				</div>
       )}
       <button className={styles.button} type="button" onClick={onDelete}>
-		✘
+		<DeleteItems/>
       </button>
     </div>
   );

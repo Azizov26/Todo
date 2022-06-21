@@ -10,22 +10,17 @@ export const App = () => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.categories);
 
-  console.log('### categories', categories);
-
   const onSubmitCategoryForm = (categoryName) => dispatch(CATEGORY__ACTIONS.addCategory(categoryName));
   const onSubmitTaskForm = ({ taskName, categoryId }) => dispatch(CATEGORY__ACTIONS.addTask({ taskName, categoryId }));
 
   const allTasks = categories.reduce((acc, category) => acc + category.tasks.length, 0);
-  console.log('### allTasks', allTasks);
   const completedTasks = categories.reduce(
     (acc, category) => acc + category.tasks.filter(({ isCompleted }) => isCompleted).length,
     0,
   );
-  console.log('### completedTasks', completedTasks);
-  const countChecked = (100 / allTasks) * completedTasks;
 
+  const countChecked = (100 / allTasks) * completedTasks;
   const selectedCategory = categories.filter(({ isSelected }) => isSelected === true)[0];
-  console.log('### selectedCategory ', selectedCategory);
 
   return (
     <div className={styles.app}>
@@ -34,6 +29,7 @@ export const App = () => {
         <div className={styles.progressBar}>
           <div style={{ width: countChecked + '%' }} className={styles.progressBar__content} />
         </div>
+
         <div className={styles.content}>
           <div className={styles.content__item}>
             <CategoryForm onSubmit={onSubmitCategoryForm} />
@@ -51,6 +47,7 @@ export const App = () => {
                 />
               </Fragment>
             )}
+
           </div>
         </div>
       </div>

@@ -18,9 +18,8 @@ export const Tasks = ({ onSubmit, categoryId }) => {
     <form className={styles.content} onSubmit={handleOnSubmit}>
       <input placeholder='Tasks...' className={styles.input} type="text" value={taskName} onChange={handleOnChange} />
       <button className={styles.button} type="button" onClick={handleOnSubmit}>
-        ADD
+        Add
       </button>
-
     </form>
   );
 };

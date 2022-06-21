@@ -1,4 +1,3 @@
-import { createStore } from 'redux';
 import { CATEGORY_ACTION_TYPES } from './action-types';
 
 export const initialState = [
