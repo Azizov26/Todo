@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { CategoryItem } from '../CategoryItem/CategoryItem';
 
@@ -12,4 +13,8 @@ export const Categories = ({ categories }) => {
       ))}
     </div>
   );
+};
+
+Categories.propTypes = {
+  categories: PropTypes.array.isRequired
 };

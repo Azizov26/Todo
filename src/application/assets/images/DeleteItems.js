@@ -1,14 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import removal from '../images/removal.png'
+import removal from './removal.png';
 
-export const DeleteItems = () => {
-	return (
-		<img style={{
-			width: '17px',
-			height:'17px',
-		}} src={removal} alt='delete'/>
-	)
+export const removalCategory = () =>{
+	<img
+	style={{
+	  width: '17px',
+	  height: '17px',
+	}}
+	src={removal}
+	alt="delete"
+ />
 }
 
 

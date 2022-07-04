@@ -1,10 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {BsTrash} from 'react-icons/bs';
+import {BiEdit} from 'react-icons/bi';
+import {HiOutlineCheckCircle} from 'react-icons/hi'
 
 import { CATEGORY__ACTIONS } from '../../redux/reducers/category/actions';
-import { DeleteItems } from '../../application/assets/images/DeleteItems';
-import { Edit } from '../../application/assets/images/Edit';
-import { Done } from '../../application/assets/images/Done';
+
+
 
 import styles from './CategoryItem.module.scss';
 
@@ -24,21 +26,23 @@ export const CategoryItem = ({ categoryId, categoryName }) => {
 
   return (
     <div onClick={onShow} key={categoryName} className={styles.category}>
+		<div className={styles.category__title}>
       {isEdited ? (
         <Fragment>
           <input value={inputValue} onChange={onChange} />
-          <button className={styles.button} onClick={onRename}> <Done/> </button>
+          <button className={styles.button} onClick={onRename}> <HiOutlineCheckCircle/> </button>
         </Fragment>
       ) : (
-        <div className={styles.category__title} >
-          {categoryName}
-				<button className={styles.edited} onClick={() => setIsEdited(true)}>
-				<Edit/>
+        <Fragment  >
+			<span>{categoryName}</span>
+				<button className={styles.button} onClick={() => setIsEdited(true)}>
+				<BiEdit/>
 				</button>
-				</div>
+			</Fragment>
       )}
-      <button className={styles.button} type="button" onClick={onDelete}>
-		<DeleteItems/>
+		</div>
+		<button className={styles.button} type="button" onClick={onDelete}>
+	<BsTrash/>
       </button>
     </div>
   );

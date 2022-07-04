@@ -2,9 +2,10 @@ import React, { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { CATEGORY__ACTIONS } from '../../redux/reducers/category/actions';
-import { DeleteItems } from '../../application/assets/images/DeleteItems';
-import { Edit } from '../../application/assets/images/Edit';
-import { Done } from '../../application/assets/images/Done';
+import {BsTrash} from 'react-icons/bs';
+import {BiEdit} from 'react-icons/bi';
+import {HiOutlineCheckCircle} from 'react-icons/hi'
+
 
 import styles from './TaskItem.module.scss';
 
@@ -29,22 +30,26 @@ export const TaskItem = ({ categoryId, taskName, todoId }) => {
 
   return (
       <div className={styles.task}>
+			<div className={styles.task__title} >
         {isEdited ? (
           <Fragment>
             <input value={inputValue} onChange={onChange} />
-            <button className={styles.done} onClick={onRename}> <Done/> </button>
+            <button className={styles.button} onClick={onRename}><HiOutlineCheckCircle/>  </button>
           </Fragment>
         ) : (
-			<span className={styles.task__title}>
+			<Fragment>
+			<span className={styles.task__span}>
 				<input onClick={onToggle} className={styles.checkbox} type='checkbox' id='tasks' name='tasks' value='taskName'/>
 				<label>{taskName}</label>
-			 <button className={styles.edited} onClick={() => setIsEdited(true)}>
-				<Edit/>
-			 </button>
 		  </span>
+		  <button className={styles.button} onClick={() => setIsEdited(true)}>
+			<BiEdit/>
+			 </button>
+		  </Fragment>
         )}
-        <button className={styles.btnDelete} type="button" onClick={onDelete}>
-			<DeleteItems/>
+		  </div>
+        <button className={styles.button} type="button" onClick={onDelete}>
+			<BsTrash/>
         </button>
       </div>
 
