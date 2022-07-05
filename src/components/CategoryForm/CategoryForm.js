@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './CategoryForm.module.scss';
 
@@ -27,3 +28,7 @@ export const CategoryForm = ({ onSubmit }) => {
     </form>
   );
 };
+
+CategoryForm.propTypes = {
+	onSubmit: PropTypes.func.isRequired
+}

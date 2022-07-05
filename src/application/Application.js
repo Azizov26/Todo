@@ -25,7 +25,7 @@ export const App = () => {
   return (
     <div className={styles.app}>
       <div>
-        <h1 className={styles.title}> Todo List</h1>
+        <h1 className={styles.title}> TO-DO APP</h1>
         <div className={styles.progressBar}>
           <div style={{ width: countChecked + '%' }} className={styles.progressBar__content} />
         </div>

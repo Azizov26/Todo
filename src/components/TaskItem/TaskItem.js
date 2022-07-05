@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import { CATEGORY__ACTIONS } from '../../redux/reducers/category/actions';
+import PropTypes from 'prop-types';
+
 import {BsTrash} from 'react-icons/bs';
 import {BiEdit} from 'react-icons/bi';
 import {HiOutlineCheckCircle} from 'react-icons/hi'
@@ -52,6 +53,11 @@ export const TaskItem = ({ categoryId, taskName, todoId }) => {
 			<BsTrash/>
         </button>
       </div>
-
   );
 };
+
+TaskItem.propTypes = {
+	taskName: PropTypes.string.isRequired,
+	todoId: PropTypes.number.isRequired
+}
+

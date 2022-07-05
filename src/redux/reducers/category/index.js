@@ -2,18 +2,18 @@ import { CATEGORY_ACTION_TYPES } from './action-types';
 
 export const initialState = [
   {
-    categoryId: '1',
-    categoryName: 'Обучение',
+    categoryId: 1,
+    categoryName: 'IT',
     isSelected: true,
     tasks: [
       {
-        todoId: '100',
-        taskName: 'Разобраться с задачей',
+        todoId: 100,
+        taskName: 'Экспертность в Frontend Development',
         isCompleted: false,
       },
       {
-        todoId: '101',
-        taskName: 'Устроиться на работу',
+        todoId: 101,
+        taskName: 'Найти перспективную IT-компанию',
         isCompleted: false,
       },
     ],
@@ -124,18 +124,3 @@ export default (state = initialState, action) => {
   }
 };
 
-// case CATEGORY_ACTION_TYPES.TOGGLE__TASK: {
-// 	return state.map((category) => {
-// 		if (category.categoryId === action.payload.categoryId) {
-// 		  return {
-// 			 ...category,
-// 			 tasks: category.tasks.map((task) => ({
-// 				...task,
-// 				isCompleted:
-// 					 task.todoId === action.payload.todoId ? !task.isCompleted : task.isCompleted
-// 			 }))
-// 		  };
-// 		}
-// 		return category;
-// 	 });
-//  }

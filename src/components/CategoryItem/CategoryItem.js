@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import {BsTrash} from 'react-icons/bs';
 import {BiEdit} from 'react-icons/bi';
 import {HiOutlineCheckCircle} from 'react-icons/hi'
@@ -47,4 +49,9 @@ export const CategoryItem = ({ categoryId, categoryName }) => {
     </div>
   );
 };
+
+CategoryItem.prototype = {
+	categoryId: PropTypes.number.isRequired,
+	categoryName: PropTypes.string.isRequired
+}
 

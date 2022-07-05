@@ -16,5 +16,5 @@ export const Categories = ({ categories }) => {
 };
 
 Categories.propTypes = {
-  categories: PropTypes.array.isRequired
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired
 };
