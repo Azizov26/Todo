@@ -11,11 +11,15 @@
 }
 
 .title {
-  margin: 0 0 35px 0;
+  margin: 30px auto;
+  width: 600px;
+  height: 80px;
 
   color: cadetblue;
   font-size: 80px;
   text-align: center;
+
+  box-shadow: 0 0 10px rgba(0, 150, 100, 0.5);
 }
 
 .progressBar {
